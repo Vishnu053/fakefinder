@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Test</title>
+    <style>
+        .container {
+            min-width: 500px !important;
+            max-width: 500px !important;
+            min-height: 600px !important;
+            overflow: auto !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="hi">Hi!</h1>
+        <button onclick="getIt()">Get</button>
+
+    </div>
+    <script>
+        // document.ready(() => {
+        //     setTimeout(() => {
+        //         getIt()
+        //     }, 5000);
+        // })
+        function getIt() {
+            var tabUrl = chrome.tabs.getSelected(null, function (tab) {
+                var tabUrl = tab.url;
+
+                document.getElementById("hi").innerHTML = tabUrl;
+            });
+            // setTimeout(() => {
+            //     getIt()
+            // }, 5000);
+        }
+
+    </script>
+</body>
+
+</html>
